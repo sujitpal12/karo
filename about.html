@@ -10,18 +10,29 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+        body {
+    width: 100%;
+    overflow-x: hidden; /* This will prevent horizontal scrolling */
+}
         header {
             background-color: #007bff;
             color: white;
             padding: 10px 0;
             text-align: center;
+            .slider {
+        margin-bottom: 0; /* Remove any margin under the slider */
+    }
         }
         header img {
             width: 100px; /* Logo size */
             height: auto; /* Height auto */
             margin-bottom: 10px; /* Margin below logo */
-        }
+        } /* Fix content breaking in the middle */
+    .content-section {
+        width: 100%; /* Ensure content sections take full width on small screens */
+        text-align: center;
         nav {
             display: flex;
             justify-content: center;
