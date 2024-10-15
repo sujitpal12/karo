@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet - KARO BUY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .total-commission {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .order-details {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .order-details th, .order-details td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .order-details th {
+            background-color: #f0f0f0;
+        }
+
+        .withdraw-container {
+            text-align: center;
+        }
+
+        .withdraw-option {
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .withdraw-option input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
+        }
+
+        .withdraw-option button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .withdraw-option button:hover {
+            background-color: #218838;
+        }
+
+        .withdraw-amount {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border-top: 2px solid #ccc;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="KARO BUY Logo"> <!-- Logo Path -->
+        <h1>KARO BUY</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="wallet.html">Wallet</a>
+    </nav>
+
+    <div class="container">
+        <h2>Your Wallet</h2>
+
+        <div class="total-commission">
+            Total Commission Amount: ₹<span id="total-commission">0</span>
+        </div>
+
+        <table class="order-details">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Commission</th>
+                </tr>
+            </thead>
+            <tbody id="order-list">
+                <!-- Dynamic product details will be listed here -->
+            </tbody>
+        </table>
+
+        <div class="withdraw-container">
+            <h3>Withdraw Your Balance</h3>
+
+            <!-- Amount to Withdraw -->
+            <div class="withdraw-amount">
+                <input type="number" placeholder="Enter Withdraw Amount" id="withdraw-amount" max="0">
+            </div>
+
+            <div class="withdraw-option">
+                <label>
+                    <input type="radio" name="withdraw-method" value="upi" checked> UPI ID
+                </label>
+                <label>
+                    <input type="radio" name="withdraw-method" value="bank"> Bank Account
+                </label>
+            </div>
+
+            <!-- UPI Field -->
+            <div class="withdraw-option" id="upi-field">
+                <input type="text" placeholder="Enter UPI ID" id="upi-id">
+            </div>
+
+            <!-- Bank Account Fields -->
+            <div class="withdraw-option" id="bank-fields" style="display: none;">
+                <input type="text" placeholder="Account Holder Name" id="account-holder">
+                <input type="text" placeholder="Account Number" id="account-number">
+                <input type="text" placeholder="IFSC Code" id="ifsc-code">
+            </div>
+
+            <div class="withdraw-option">
+                <button id="withdraw-button">Withdraw</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 KARO BUY. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Example data: replace this with actual product and commission data
+        const orders = [
+            { name: 'Product 1', price: 5000, commission: 200 },
+            { name: 'Product 2', price: 12000, commission: 500 },
+            { name: 'Product 3', price: 3000, commission: 100 }
+        ];
+
+        // Populate order list and calculate total commission
+        const orderList = document.getElementById('order-list');
+        let totalCommission = 0;
+
+        orders.forEach(order => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${order.name}</td>
+                <td>₹${order.price}</td>
+                <td>₹${order.commission}</td>
+            `;
+            orderList.appendChild(row);
+            totalCommission += order.commission;
+        });
+
+        document.getElementById('total-commission').innerText = totalCommission;
+
+        // Set max value for withdraw input
+        document.getElementById('withdraw-amount').setAttribute('max', totalCommission);
+
+        // Handle withdraw method change
+        const upiField = document.getElementById('upi-field');
+        const bankFields = document.getElementById('bank-fields');
+
+        document.querySelectorAll('input[name="withdraw-method"]').forEach(input => {
+            input.addEventListener('change', function () {
+                if (this.value === 'upi') {
+                    upiField.style.display = 'block';
+                    bankFields.style.display = 'none';
+                } else {
+                    upiField.style.display = 'none';
+                    bankFields.style.display = 'block';
+                }
+            });
+        });
+
+        // Handle withdraw button click
+        document.getElementById('withdraw-button').addEventListener('click', function () {
+            const selectedMethod = document.querySelector('input[name="withdraw-method"]:checked').value;
+            const withdrawAmount = parseFloat(document.getElementById('withdraw-amount').value);
+
+            if (withdrawAmount > totalCommission || withdrawAmount <= 0) {
+                alert('Please enter a valid withdraw amount.');
+                return;
+            }
+
+            if (selectedMethod === 'upi') {
+                const upiId = document.getElementById('upi-id').value;
+                if (!upiId) {
+                    alert('Please enter UPI ID.');
+                    return;
+                }
+                alert(`Withdraw request for ₹${withdrawAmount} to UPI ID ${upiId} has been submitted.`);
+            } else {
+                const accountHolder = document.getElementById('account-holder').value;
+                const accountNumber = document.getElementById('account-number').value;
+                const ifscCode = document.getElementById('ifsc-code').value;
+                if (!accountHolder || !accountNumber || !ifscCode) {
+                    alert('Please fill in all bank details.');
+                    return;
+                }
+                alert(`Withdraw request for ₹${withdrawAmount} to bank account ${accountNumber} has been submitted.`);
+            }
+
+            // Update total commission
+            totalCommission -= withdrawAmount;
+            document.getElementById('total-commission').innerText = totalCommission;
+            document.getElementById('withdraw-amount').setAttribute('max', totalCommission);
+        });
+    </script>
+</body>
+</html>

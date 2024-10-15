@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KARO-BUY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header img {
+            width: 100px; /* Logo size */
+            height: auto; /* Height auto */
+            margin-bottom: 5px; /* Margin below logo */
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .offers {
+            background-color: #f0ad4e; /* Offer banner color */
+            padding: 10px;
+            text-align: center; /* Center text */
+            font-weight: bold; /* Bold text */
+            color: #fff; /* Text color */
+            font-size: 1.2em; /* Text size */
+        }
+        .slider {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 400px; /* Slider height */
+        }
+        .slider img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            transition: transform 0.5s ease;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 30px;
+        }
+        .product {
+            border: 1px solid #ccc;
+            border-radius: 9px;
+            padding: 15px;
+            margin: 15px;
+            text-align: center;
+            width: 300px; /* Product box width */
+        }
+        .view-more, .buy-now {
+            background-color: #28a745; /* Button color */
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px; /* Margin above buttons */
+        }
+        .view-more:hover, .buy-now:hover {
+            background-color: #218838; /* Hover effect */
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        #search-container {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        #search {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px; /* Rounded corners for left */
+        }
+        #search-button {
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 0 5px 5px 0; /* Rounded corners for right */
+            cursor: pointer;
+        }
+        #search-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        .detail {
+            display: none; /* Initially hide details */
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .ecommerce-links {
+            display: none; /* Initially hide ecommerce links */
+            margin-top: 10px;
+        }
+        .ecommerce-links img {
+            width: 90px; /* Size for e-commerce logos */
+            margin: 6px; /* Space between logos */
+            cursor: pointer; /* Cursor on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="KARO-BUY Logo"> <!-- Logo path -->
+        <h1>KARO-BUY</h1>
+        <div id="search-container">
+            <input type="text" id="search" placeholder="Search products...">
+            <button id="search-button"><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="top-retailer.html">Top Retailers</a>
+        <a href="wallet.html">Wallet</a>
+    </nav>
+
+    <div class="offers">
+        <marquee behavior="scroll" direction="left">New offers are coming! Check them out!</marquee>
+    </div>
+
+    <div class="slider">
+        <img src="images/slider1.jpg" alt="Slide 1">
+        <img src="images/slider2.jpg" alt="Slide 2">
+        <img src="images/slider3.jpg" alt="Slide 3">
+    </div>
+    <h2 style="text-align: center; margin: 20px 0;">OUR PRODUCTS</h2>
+    <div class="product-list">
+        <div class="product">
+            <img src="images/iphone 16 pro.jpg" alt="Iphone 16 Pro">
+            <h3>iPhone 16 Pro</h3>
+            <button class="view-more" onclick="showDetails(1)">View More</button>
+            <button class="buy-now" onclick="showEcommerceLinks(1)">Buy Now</button>
+            <div class="detail" id="detail-1">
+                <h4>iPhone 16 Pro Details:</h4>
+                <ul><div style="text-align: start;color: rgb(33, 33, 33);background-color: rgb(255, 255, 255);font-size: 14px;font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;border-top: 1px solid rgb(240, 240, 240);">
+    <div style="font-size: 18px;">General</div>
+    <table style="border-collapse: collapse; width: 100%;">
+        <tbody>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">In The Box</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Handset, USB C Charge Cable (1m), Documentation</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Model Number</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>MYNG3HN/A</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Model Name</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>iPhone 16 Pro</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Color</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Natural Titanium</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Browse Type</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Smartphones</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">SIM Type</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Dual Sim(Nano + eSIM)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Hybrid Sim Slot</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>No</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Touchscreen</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Yes</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">OTG Compatible</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>No</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Sound Enhancements</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Built-in Stereo Speaker</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="text-align: start;color: rgb(33, 33, 33);background-color: rgb(255, 255, 255);font-size: 14px;font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;border-top: 1px solid rgb(240, 240, 240);">
+    <div style="font-size: 18px;">Display Features</div>
+    <table style="border-collapse: collapse; width: 100%;">
+        <tbody>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Display Size</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>16.0 cm (6.3 inch)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Resolution</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>2622 x 1206 Pixels</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Resolution Type</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Super Retina XDR Display</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">GPU</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>New 6 Core</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Display Type</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>All Screen OLED Display</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="text-align: start;color: rgb(33, 33, 33);background-color: rgb(255, 255, 255);font-size: 18px;font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;">Os &amp; Processor Features</div>
+<table style="text-align: start; color: rgb(33, 33, 33); background-color: rgb(255, 255, 255); font-size: 14px; font-family: Inter, -apple-system, Helvetica, Arial, sans-serif; border-collapse: collapse; width: 100%;">
+    <tbody>
+        <tr>
+            <td style="color: rgb(135, 135, 135);">Operating System</td>
+            <td style="color: rgb(33, 33, 33);">
+                <ul>
+                    <li>iOS 18</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td style="color: rgb(135, 135, 135);">Processor Brand</td>
+            <td style="color: rgb(33, 33, 33);">
+                <ul>
+                    <li>Apple</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td style="color: rgb(135, 135, 135);">Processor Type</td>
+            <td style="color: rgb(33, 33, 33);">
+                <ul>
+                    <li>A18 Pro Chip, 6 Core Processor</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td style="color: rgb(135, 135, 135);">Processor Core</td>
+            <td style="color: rgb(33, 33, 33);">
+                <ul>
+                    <li>Hexa Core</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div style="text-align: start;color: rgb(33, 33, 33);background-color: rgb(255, 255, 255);font-size: 14px;font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;border-top: 1px solid rgb(240, 240, 240);">
+    <div style="font-size: 18px;">Memory &amp; Storage Features</div>
+    <table style="border-collapse: collapse; width: 100%;">
+        <tbody>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Internal Storage</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>128 GB</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="text-align: start;color: rgb(33, 33, 33);background-color: rgb(255, 255, 255);font-size: 14px;font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;border-top: 1px solid rgb(240, 240, 240);">
+    <div style="font-size: 18px;">Camera Features</div>
+    <table style="border-collapse: collapse; width: 100%;">
+        <tbody>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Primary Camera Available</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Yes</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Primary Camera</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>48MP + 48MP + 12MP</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<table style="text-align: start; color: rgb(33, 33, 33); background-color: rgb(255, 255, 255); font-size: 14px; font-family: Inter, -apple-system, Helvetica, Arial, sans-serif; border-collapse: collapse; width: 100%;">
+    <tbody>
+        <tr>
+            <td style="color: rgb(135, 135, 135); width: 27.3357%;">Flash</td>
+            <td style="color: rgb(33, 33, 33); width: 72.4913%;">
+                <ul>
+                    <li>Rear: True Tone Flash | Front: Retina Flash</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td style="color: rgb(135, 135, 135); width: 27.3357%;">HD Recording</td>
+            <td style="color: rgb(33, 33, 33); width: 72.4913%;">
+                <ul>
+                    <li>Yes</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td style="color: rgb(135, 135, 135); width: 27.3357%;">Full HD Recording</td>
+            <td style="color: rgb(33, 33, 33); width: 72.4913%;">
+                <ul>
+                    <li>Yes</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td style="color: rgb(135, 135, 135); width: 27.3357%;">Video Recording</td>
+            <td style="color: rgb(33, 33, 33); width: 72.4913%;">
+                <ul>
+                    <li>Yes</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div style="text-align: start;color: rgb(33, 33, 33);background-color: rgb(255, 255, 255);font-size: 14px;font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;border-top: 1px solid rgb(240, 240, 240);">
+    <div style="font-size: 18px;">Call Features</div>
+    <table style="border-collapse: collapse; width: 100%;">
+        <tbody>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Video Call Support</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Yes</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Speaker Phone</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Yes</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="text-align: start;color: rgb(33, 33, 33);background-color: rgb(255, 255, 255);font-size: 14px;font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;border-top: 1px solid rgb(240, 240, 240);">
+    <div style="font-size: 18px;">Connectivity Features</div>
+    <table style="border-collapse: collapse; width: 100%;">
+        <tbody>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Network Type</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>5G, 4G VOLTE, 4G, 3G, 2G</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Supported Networks</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>5G, 4G VoLTE, 4G LTE, UMTS, GSM</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Internet Connectivity</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>5G, 4G, 3G, Wi-Fi, EDGE</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">3G</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Yes</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Bluetooth Support</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Yes</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Bluetooth Version</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>v5.3</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Wi-Fi</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Yes</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Wi-Fi Version</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Wi?Fi 7 (802.11be)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">NFC</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Yes</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Map Support</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Yes</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">GPS Support</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Yes</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="text-align: start;color: rgb(33, 33, 33);background-color: rgb(255, 255, 255);font-size: 14px;font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;border-top: 1px solid rgb(240, 240, 240);">
+    <div style="font-size: 18px;">Other Details</div>
+    <table style="border-collapse: collapse; width: 100%;">
+        <tbody>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Smartphone</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Yes</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">SIM Size</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>Nano Sim + eSIM</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Graphics PPI</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>460 PPI</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="text-align: start;color: rgb(33, 33, 33);background-color: rgb(255, 255, 255);font-size: 14px;font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;border-top: 1px solid rgb(240, 240, 240);">
+    <div style="font-size: 18px;">Multimedia Features</div>
+    <table style="border-collapse: collapse; width: 100%;">
+        <tbody>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Audio Formats</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>AAC, APAC, MP3, Apple Lossless, FLAC, Dolby Digital, Dolby Digital Plus, Dolby Atmos</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Video Formats</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>HEVC, H.264, and ProRes</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="text-align: start;color: rgb(33, 33, 33);background-color: rgb(255, 255, 255);font-size: 14px;font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;border-top: 1px solid rgb(240, 240, 240);">
+    <div style="font-size: 18px;">Dimensions</div>
+    <table style="border-collapse: collapse; width: 100%;">
+        <tbody>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Width</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>71.5 mm</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Height</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>149.6 mm</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Depth</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>8.25 mm</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Weight</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>199 g</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="text-align: start;color: rgb(33, 33, 33);background-color: rgb(255, 255, 255);font-size: 14px;font-family: Inter, -apple-system, Helvetica, Arial, sans-serif;border-top: 1px solid rgb(240, 240, 240);">
+    <div style="font-size: 18px;">Warranty</div>
+    <table style="border-collapse: collapse; width: 100%;">
+        <tbody>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Warranty Summary</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>1 Year Warranty for Phone and 6 Months Warranty for In-Box Accessories</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: rgb(135, 135, 135);">Domestic Warranty</td>
+                <td style="color: rgb(33, 33, 33);">
+                    <ul>
+                        <li>1 Year</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p><br></p>
+                </ul>
+            </div>
+            <div class="ecommerce-links" id="links-1">
+                <a href="https://amzn.to/3BN532A"><img src="images/amazon-logo.png" alt="Amazon"></a>
+                <a href="https://fktr.in/Dvia3rl"><img src="images/flipkart-logo.png" alt="Flipkart"></a>
+                 
+            </div>
+        </div>
+        <div class="product">
+            <img src="images/SAMSUNG Galaxy Z Fold6 5G .jpg" alt="Product 2">
+            <h3>SAMSUNG Galaxy Z Fold6 5G </h3>
+            <button class="view-more" onclick="showDetails(2)">View More</button>
+            <button class="buy-now" onclick="showEcommerceLinks(2)">Buy Now</button>
+            <div class="detail" id="detail-2">
+                <h4>SAMSUNG Galaxy Z Fold6 5G  Details:</h4>
+                <ul>
+<div class="GNDEQ-">
+<div class="_4BJ2V+"><strong>General</strong></div>
+<table class="_0ZhAN9" style="width: 224px;">
+<tbody>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 89px;">In The Box</td>
+<td class="Izz52n col col-9-12" style="width: 119px;">
+<ul>
+<li class="HPETK2">Handset, Data Cable (C to C), Sim Ejection Pin, Quick Start Guide, Protection Film (Main Screen Only)</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 89px;">Model Number</td>
+<td class="Izz52n col col-9-12" style="width: 119px;">
+<ul>
+<li class="HPETK2">SM-F956BLIDINS</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 89px;">Model Name</td>
+<td class="Izz52n col col-9-12" style="width: 119px;">
+<ul>
+<li class="HPETK2">Galaxy Z Fold6 5G</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 89px;">Color</td>
+<td class="Izz52n col col-9-12" style="width: 119px;">
+<ul>
+<li class="HPETK2">Pink</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 89px;">Browse Type</td>
+<td class="Izz52n col col-9-12" style="width: 119px;">
+<ul>
+<li class="HPETK2">Smartphones</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 89px;">SIM Type</td>
+<td class="Izz52n col col-9-12" style="width: 119px;">
+<ul>
+<li class="HPETK2">Dual Sim</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 89px;">Hybrid Sim Slot</td>
+<td class="Izz52n col col-9-12" style="width: 119px;">
+<ul>
+<li class="HPETK2">No</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 89px;">Touchscreen</td>
+<td class="Izz52n col col-9-12" style="width: 119px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 89px;">OTG Compatible</td>
+<td class="Izz52n col col-9-12" style="width: 119px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 89px;">Quick Charging</td>
+<td class="Izz52n col col-9-12" style="width: 119px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="GNDEQ-">
+<div class="_4BJ2V+"><strong>Display Features</strong></div>
+<table class="_0ZhAN9" style="width: 224px;">
+<tbody>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 126px;">Display Size</td>
+<td class="Izz52n col col-9-12" style="width: 82px;">
+<ul>
+<li class="HPETK2">19.3 cm (7.6 inch)</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 126px;">Resolution</td>
+<td class="Izz52n col col-9-12" style="width: 82px;">
+<ul>
+<li class="HPETK2">2160 x 1856 Pixels</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 126px;">Resolution Type</td>
+<td class="Izz52n col col-9-12" style="width: 82px;">
+<ul>
+<li class="HPETK2">QXGA+</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 126px;">GPU</td>
+<td class="Izz52n col col-9-12" style="width: 82px;">
+<ul>
+<li class="HPETK2">Adreno 750</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 126px;">Display Type</td>
+<td class="Izz52n col col-9-12" style="width: 82px;">
+<ul>
+<li class="HPETK2">Dynamic AMOLED 2X</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 126px;">HD Game Support</td>
+<td class="Izz52n col col-9-12" style="width: 82px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 126px;">Display Colors</td>
+<td class="Izz52n col col-9-12" style="width: 82px;">
+<ul>
+<li class="HPETK2">16 Millions</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 126px;">Other Display Features</td>
+<td class="Izz52n col col-9-12" style="width: 82px;">
+<ul>
+<li class="HPETK2">120Hz Refresh Rate</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="GNDEQ-">
+<div class="_4BJ2V+"><strong>Os &amp; Processor Features</strong></div>
+<table class="_0ZhAN9" style="width: 227.484px;">
+<tbody>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 129px;">Operating System</td>
+<td class="Izz52n col col-9-12" style="width: 81.4844px;">
+<ul>
+<li class="HPETK2">Android 14</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 129px;">Processor Brand</td>
+<td class="Izz52n col col-9-12" style="width: 81.4844px;">
+<ul>
+<li class="HPETK2">Snapdragon</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 129px;">Processor Type</td>
+<td class="Izz52n col col-9-12" style="width: 81.4844px;">
+<ul>
+<li class="HPETK2">Snapdragon 8 Gen 3</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 129px;">Processor Core</td>
+<td class="Izz52n col col-9-12" style="width: 81.4844px;">
+<ul>
+<li class="HPETK2">Octa Core</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 129px;">Primary Clock Speed</td>
+<td class="Izz52n col col-9-12" style="width: 81.4844px;">
+<ul>
+<li class="HPETK2">3.39 GHz</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 129px;">Secondary Clock Speed</td>
+<td class="Izz52n col col-9-12" style="width: 81.4844px;">
+<ul>
+<li class="HPETK2">3.1 GHz</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 129px;">Tertiary Clock Speed</td>
+<td class="Izz52n col col-9-12" style="width: 81.4844px;">
+<ul>
+<li class="HPETK2">2.9 GHz</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 129px;">Operating Frequency</td>
+<td class="Izz52n col col-9-12" style="width: 81.4844px;">
+<ul>
+<li class="HPETK2">5G: N1(2100), N2(1900), N3(1800), N5(850), N7(2600), N8(900), N12(700), N20(800), N25(1900), N26(850), N28(700), N66(AWS-3)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="GNDEQ-">
+<div class="_4BJ2V+"><strong>Memory &amp; Storage Features</strong></div>
+<table class="_0ZhAN9" style="width: 228.438px;">
+<tbody>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 113px;">Internal Storage</td>
+<td class="Izz52n col col-9-12" style="width: 98.4375px;">
+<ul>
+<li class="HPETK2">256 GB</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 113px;">RAM</td>
+<td class="Izz52n col col-9-12" style="width: 98.4375px;">
+<ul>
+<li class="HPETK2">12 GB</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 113px;">Total Memory</td>
+<td class="Izz52n col col-9-12" style="width: 98.4375px;">
+<ul>
+<li class="HPETK2">256 GB</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 113px;">Phone Book Memory</td>
+<td class="Izz52n col col-9-12" style="width: 98.4375px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 113px;">Call Log Memory</td>
+<td class="Izz52n col col-9-12" style="width: 98.4375px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 113px;">SMS Memory</td>
+<td class="Izz52n col col-9-12" style="width: 98.4375px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="GNDEQ-">
+<div class="_4BJ2V+"><strong>Camera Features</strong></div>
+<table class="_0ZhAN9" style="width: 229px;">
+<tbody>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 142px;">Primary Camera Available</td>
+<td class="Izz52n col col-9-12" style="width: 71px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 142px;">Primary Camera</td>
+<td class="Izz52n col col-9-12" style="width: 71px;">
+<ul>
+<li class="HPETK2">50MP + 12MP + 10MP</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="GNDEQ-">
+<table class="_0ZhAN9" style="width: 231px;">
+<tbody>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 157px;">Optical Zoom</td>
+<td class="Izz52n col col-9-12" style="width: 58px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 157px;">Secondary Camera Available</td>
+<td class="Izz52n col col-9-12" style="width: 58px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 157px;">Secondary Camera</td>
+<td class="Izz52n col col-9-12" style="width: 58px;">
+<ul>
+<li class="HPETK2">10MP Front Camera</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 157px;">Secondary Camera Features</td>
+<td class="Izz52n col col-9-12" style="width: 58px;">
+<ul>
+<li class="HPETK2">Front Camera Setup: 10MP Camera, Features: Fixed Focus</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 157px;">Flash</td>
+<td class="Izz52n col col-9-12" style="width: 58px;">
+<ul>
+<li class="HPETK2">Rear Flash</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 157px;">HD Recording</td>
+<td class="Izz52n col col-9-12" style="width: 58px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 157px;">Full HD Recording</td>
+<td class="Izz52n col col-9-12" style="width: 58px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 157px;">Video Recording</td>
+<td class="Izz52n col col-9-12" style="width: 58px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 157px;">Video Recording Resolution</td>
+<td class="Izz52n col col-9-12" style="width: 58px;">
+<ul>
+<li class="HPETK2">UHD 8K (7680 x 4320) (at 30 fps)</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 157px;">Digital Zoom</td>
+<td class="Izz52n col col-9-12" style="width: 58px;">
+<ul>
+<li class="HPETK2">Upto 30X</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 157px;">Frame Rate</td>
+<td class="Izz52n col col-9-12" style="width: 58px;">
+<ul>
+<li class="HPETK2">30 fps</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 157px;">Image Editor</td>
+<td class="Izz52n col col-9-12" style="width: 58px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 157px;">Dual Camera Lens</td>
+<td class="Izz52n col col-9-12" style="width: 58px;">
+<ul>
+<li class="HPETK2">Primary Camera</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="GNDEQ-">
+<div class="_4BJ2V+"><strong>Call Features</strong></div>
+<table class="_0ZhAN9" style="width: 232.391px;">
+<tbody>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 102px;">Call Wait/Hold</td>
+<td class="Izz52n col col-9-12" style="width: 113.391px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 102px;">Conference Call</td>
+<td class="Izz52n col col-9-12" style="width: 113.391px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 102px;">Hands Free</td>
+<td class="Izz52n col col-9-12" style="width: 113.391px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 102px;">Video Call Support</td>
+<td class="Izz52n col col-9-12" style="width: 113.391px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 102px;">Call Divert</td>
+<td class="Izz52n col col-9-12" style="width: 113.391px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 102px;">Phone Book</td>
+<td class="Izz52n col col-9-12" style="width: 113.391px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 102px;">Call Timer</td>
+<td class="Izz52n col col-9-12" style="width: 113.391px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 102px;">Speaker Phone</td>
+<td class="Izz52n col col-9-12" style="width: 113.391px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 102px;">Speed Dialing</td>
+<td class="Izz52n col col-9-12" style="width: 113.391px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 102px;">Call Records</td>
+<td class="Izz52n col col-9-12" style="width: 113.391px;">
+<ul>
+<li class="HPETK2">Outgoing, Missed</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 102px;">Logs</td>
+<td class="Izz52n col col-9-12" style="width: 113.391px;">
+<ul>
+<li class="HPETK2">Incoming Calls, Outgoing Calls, Missed Calls, Spam Calls</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="GNDEQ-">
+<div class="_4BJ2V+"><strong>Connectivity Features</strong></div>
+<table class="_0ZhAN9" style="width: 233.453px;">
+<tbody>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Network Type</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">5G, 4G, 3G, 2G</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Supported Networks</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">5G, 4G LTE, WCDMA, GSM</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Internet Connectivity</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">5G, 4G LTE, 3G, 2G, GPRS</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">3G</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">3G Speed</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">HSPA+ 42, 5.76Mbps</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">GPRS</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 48px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 48px;">Pre-installed Browser</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 48px;">
+<ul>
+<li class="HPETK2">Google Chrome, Samsung Internet</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Micro USB Port</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Micro USB Version</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">USB 3.2 Gen 1</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Mini USB Port</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">No</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Bluetooth Support</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Bluetooth Version</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">v5.3</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Wi-Fi</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 61px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 61px;">Wi-Fi Version</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 61px;">
+<ul>
+<li class="HPETK2">802.11 a/b/g/n/ac/ax (2.4 GHz | 5 GHz), HE160, MIMO, 1024-QAM</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Wi-Fi Hotspot</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Mini HDMI Port</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">No</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">NFC</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">USB Tethering</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">TV Out</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">No</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Infrared</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">No</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">USB Connectivity</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Audio Jack</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">Type-C</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row" style="height: 35px;">
+<td class="+fFi1w col col-3-12" style="width: 117px; height: 35px;">Map Support</td>
+<td class="Izz52n col col-9-12" style="width: 99.4531px; height: 35px;">
+<ul>
+<li class="HPETK2">Google Maps</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="GNDEQ-">
+<div class="_4BJ2V+"><strong>Other Details</strong></div>
+<table class="_0ZhAN9" style="width: 235.234px;">
+<tbody>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Smartphone</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Touchscreen Type</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">Capactive</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">SIM Size</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">Nano Sim</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Mobile Tracker</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">No</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Social Networking Phone</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Instant Message</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Business Phone</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">No</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Removable Battery</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">No</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">MMS</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">SMS</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Keypad</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">No</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Voice Input</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Graphics PPI</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">374 PPI</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Predictive Text Input</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">User Memory</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">229.2</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">SIM Access</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">Dual/Single</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Sensors</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">Accelerometer, Barometer, Fingerprint Sensor, Gyro Sensor, Geomagnetic Sensor, Hall Sensor, Light Sensor, Proximity Sensor</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Upgradable Operating System</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">7 OS Upgrade Expectation Count</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Series</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">Samsung Galaxy Z Fold6 5G</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Browser</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">Google Chrome, Samsung Internet</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 166px;">Ringtones Format</td>
+<td class="Izz52n col col-9-12" style="width: 53.2344px;">
+<ul>
+<li class="HPETK2">MP3, M4A, 3GA, AAC, OGG, OGA, WAV, AMR, AWB, FLAC, MID, MIDI, XMF, MXMF, IMY, RTTTL, RTX, OTA</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="GNDEQ-">
+<div class="_4BJ2V+"><strong>Multimedia Features</strong></div>
+<table class="_0ZhAN9" style="width: 236px;">
+<tbody>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 108px;">FM Radio</td>
+<td class="Izz52n col col-9-12" style="width: 112px;">
+<ul>
+<li class="HPETK2">No</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 108px;">FM Radio Recording</td>
+<td class="Izz52n col col-9-12" style="width: 112px;">
+<ul>
+<li class="HPETK2">No</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 108px;">DLNA Support</td>
+<td class="Izz52n col col-9-12" style="width: 112px;">
+<ul>
+<li class="HPETK2">No</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 108px;">Audio Formats</td>
+<td class="Izz52n col col-9-12" style="width: 112px;">
+<ul>
+<li class="HPETK2">MP3, M4A, 3GA, AAC, OGG, OGA, WAV, AMR, AWB, FLAC, MID, MIDI, XMF, MXMF, IMY, RTTTL, RTX, OTA</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 108px;">Video Formats</td>
+<td class="Izz52n col col-9-12" style="width: 112px;">
+<ul>
+<li class="HPETK2">MP4, M4V, 3GP, 3G2, AVI, FLV, MKV, WEBM</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="GNDEQ-">
+<div class="_4BJ2V+"><strong>Battery &amp; Power Features</strong></div>
+<table class="_0ZhAN9" style="width: 238px;">
+<tbody>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 105px;">Battery Capacity</td>
+<td class="Izz52n col col-9-12" style="width: 117px;">
+<ul>
+<li class="HPETK2">4400 mAh</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 105px;">Dual Battery</td>
+<td class="Izz52n col col-9-12" style="width: 117px;">
+<ul>
+<li class="HPETK2">Yes</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="GNDEQ-">
+<div class="_4BJ2V+"><strong>Dimensions</strong></div>
+<table class="_0ZhAN9" style="width: 239.062px;">
+<tbody>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 38px;">Width</td>
+<td class="Izz52n col col-9-12" style="width: 185.062px;">
+<ul>
+<li class="HPETK2">132.6 mm</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 38px;">Height</td>
+<td class="Izz52n col col-9-12" style="width: 185.062px;">
+<ul>
+<li class="HPETK2">153.5 mm</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 38px;">Depth</td>
+<td class="Izz52n col col-9-12" style="width: 185.062px;">
+<ul>
+<li class="HPETK2">5.6 mm</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 38px;">Weight</td>
+<td class="Izz52n col col-9-12" style="width: 185.062px;">
+<ul>
+<li class="HPETK2">239 g</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="GNDEQ-">
+<div class="_4BJ2V+"><strong>Warranty</strong></div>
+<table class="_0ZhAN9" style="width: 242.438px;">
+<tbody>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 113px;">Warranty Summary</td>
+<td class="Izz52n col col-9-12" style="width: 112.438px;">
+<ul>
+<li class="HPETK2">1 Year Manufacturer Warranty for Device and 6 Months for In-Box Accessories</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 113px;">Covered in Warranty</td>
+<td class="Izz52n col col-9-12" style="width: 112.438px;">
+<ul>
+<li class="HPETK2">Manufacturing Defects Only</li>
+</ul>
+</td>
+</tr>
+<tr class="WJdYP6 row">
+<td class="+fFi1w col col-3-12" style="width: 113px;">Domestic Warranty</td>
+<td class="Izz52n col col-9-12" style="width: 112.438px;">
+<ul>
+<li class="HPETK2">1 Year</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+                </ul>
+            </div>
+            <div class="ecommerce-links" id="links-2">
+                <a href="https://amzn.to/4h5Cayz"><img src="images/amazon-logo.png" alt="Amazon"></a>
+                <a href="https://fktr.in/ci7b4Dm"><img src="images/flipkart-logo.png" alt="Flipkart"></a>
+                 
+            </div>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2024 KARO-BUY. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slider img');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides[currentSlide].style.transform = 'translateX(-100%)'; // Move current slide out
+            currentSlide = (index + totalSlides) % totalSlides; // Loop the slide index
+            slides[currentSlide].style.transform = 'translateX(0)'; // Show the current slide
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        setInterval(nextSlide, 3000); // Slide every 3 seconds
+
+        function showDetails(productId) {
+            const detail = document.getElementById(`detail-${productId}`);
+            detail.style.display = detail.style.display === 'block' ? 'none' : 'block'; // Toggle product details
+        }
+
+        function showEcommerceLinks(productId) {
+            const links = document.getElementById(`links-${productId}`);
+            links.style.display = links.style.display === 'block' ? 'none' : 'block'; // Toggle e-commerce links
+        }
+
+        document.getElementById('search-button').addEventListener('click', function () {
+            const searchQuery = document.getElementById('search').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            let found = false;
+
+            products.forEach(product => {
+                const productName = product.querySelector('h3').innerText.toLowerCase();
+                if (productName.includes(searchQuery)) {
+                    product.style.display = 'block'; // Show product if found
+                    found = true;
+                } else {
+                    product.style.display = 'none'; // Hide product if not found
+                }
+            });
+
+            if (!found) {
+                // Show popup if no product is found
+                const popup = confirm("Not Available. Press OK to go back to the main page.");
+                if (popup) {
+                    window.location.href = "index.html"; // Redirect to main page
+                }
+            }
+        });
+
+        // Show the first slide on load
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
+
