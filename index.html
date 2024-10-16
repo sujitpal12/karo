@@ -6,10 +6,11 @@
     <title>KARO-BUY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body, html {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden; /* ডান পাশের গ্যাপ রোধ করার জন্য */
         }
         header {
             background-color: #007bff;
@@ -18,9 +19,9 @@
             text-align: center;
         }
         header img {
-            width: 100px; /* Logo size */
-            height: auto; /* Height auto */
-            margin-bottom: 5px; /* Margin below logo */
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
         }
         nav {
             display: flex;
@@ -39,50 +40,55 @@
             color: black;
         }
         .offers {
-            background-color: #f0ad4e; /* Offer banner color */
+            background-color: #f0ad4e;
             padding: 10px;
-            text-align: center; /* Center text */
-            font-weight: bold; /* Bold text */
-            color: #fff; /* Text color */
-            font-size: 1.2em; /* Text size */
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            font-size: 1.2em;
         }
         .slider {
             overflow: hidden;
             position: relative;
             width: 100%;
-            height: 400px; /* Slider height */
+            height: 300px;
         }
         .slider img {
             width: 100%;
-            height: auto;
+            height: 100%;
             position: absolute;
             transition: transform 0.5s ease;
+        }
+        h3 {
+            text-align: center;
+            margin: 10px 0;
         }
         .product-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin: 30px;
+            margin: 20px;
         }
         .product {
             border: 1px solid #ccc;
-            border-radius: 9px;
+            border-radius: 7px;
             padding: 15px;
             margin: 15px;
             text-align: center;
-            width: 300px; /* Product box width */
+            width: 100%;
+            max-width: 300px;
         }
         .view-more, .buy-now {
-            background-color: #28a745; /* Button color */
+            background-color: #28a745;
             color: white;
             border: none;
             padding: 10px;
             cursor: pointer;
             border-radius: 5px;
-            margin-top: 10px; /* Margin above buttons */
+            margin-top: 10px;
         }
         .view-more:hover, .buy-now:hover {
-            background-color: #218838; /* Hover effect */
+            background-color: #218838;
         }
         footer {
             text-align: center;
@@ -101,40 +107,49 @@
         #search {
             padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 5px 0 0 5px; /* Rounded corners for left */
+            border-radius: 5px 0 0 5px;
         }
         #search-button {
             padding: 10px;
             border: none;
             background-color: #007bff;
             color: white;
-            border-radius: 0 5px 5px 0; /* Rounded corners for right */
+            border-radius: 0 5px 5px 0;
             cursor: pointer;
         }
         #search-button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #0056b3;
         }
         .detail {
-            display: none; /* Initially hide details */
+            display: none;
             border: 1px solid #ccc;
             padding: 10px;
             margin-top: 10px;
             text-align: left;
         }
         .ecommerce-links {
-            display: none; /* Initially hide ecommerce links */
+            display: none;
             margin-top: 10px;
         }
         .ecommerce-links img {
-            width: 90px; /* Size for e-commerce logos */
-            margin: 6px; /* Space between logos */
-            cursor: pointer; /* Cursor on hover */
+            width: 90px;
+            margin: 6px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .slider {
+                height: 200px;
+            }
+            .product-list {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="images/logo.png" alt="KARO-BUY Logo"> <!-- Logo path -->
+        <img src="images/logo.png" alt="KARO-BUY Logo">
         <h1>KARO-BUY</h1>
         <div id="search-container">
             <input type="text" id="search" placeholder="Search products...">
@@ -147,7 +162,6 @@
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>
         <a href="top-retailer.html">Top Retailers</a>
-        <a href="wallet.html">Wallet</a>
     </nav>
 
     <div class="offers">
@@ -159,7 +173,8 @@
         <img src="images/slider2.jpg" alt="Slide 2">
         <img src="images/slider3.jpg" alt="Slide 3">
     </div>
-    <h2 style="text-align: center; margin: 20px 0;">OUR PRODUCTS</h2>
+
+  <h2 style="text-align: center; margin: 20px 0;">OUR PRODUCTS</h2>
     <div class="product-list">
         <div class="product">
             <img src="images/iphone 16 pro.jpg" alt="Iphone 16 Pro">
@@ -1683,8 +1698,7 @@
 </div>
 </div>
 
-
-                </ul>
+ </ul>
             </div>
             <div class="ecommerce-links" id="links-2">
                 <a href="https://amzn.to/4h5Cayz"><img src="images/amazon-logo.png" alt="Amazon"></a>
@@ -1705,25 +1719,25 @@
         const totalSlides = slides.length;
 
         function showSlide(index) {
-            slides[currentSlide].style.transform = 'translateX(-100%)'; // Move current slide out
-            currentSlide = (index + totalSlides) % totalSlides; // Loop the slide index
-            slides[currentSlide].style.transform = 'translateX(0)'; // Show the current slide
+            slides[currentSlide].style.transform = 'translateX(-100%)';
+            currentSlide = (index + totalSlides) % totalSlides;
+            slides[currentSlide].style.transform = 'translateX(0)';
         }
 
         function nextSlide() {
             showSlide(currentSlide + 1);
         }
 
-        setInterval(nextSlide, 3000); // Slide every 3 seconds
+        setInterval(nextSlide, 3000);
 
         function showDetails(productId) {
             const detail = document.getElementById(`detail-${productId}`);
-            detail.style.display = detail.style.display === 'block' ? 'none' : 'block'; // Toggle product details
+            detail.style.display = detail.style.display === 'block' ? 'none' : 'block';
         }
 
         function showEcommerceLinks(productId) {
             const links = document.getElementById(`links-${productId}`);
-            links.style.display = links.style.display === 'block' ? 'none' : 'block'; // Toggle e-commerce links
+            links.style.display = links.style.display === 'block' ? 'none' : 'block';
         }
 
         document.getElementById('search-button').addEventListener('click', function () {
@@ -1734,25 +1748,22 @@
             products.forEach(product => {
                 const productName = product.querySelector('h3').innerText.toLowerCase();
                 if (productName.includes(searchQuery)) {
-                    product.style.display = 'block'; // Show product if found
+                    product.style.display = 'block';
                     found = true;
                 } else {
-                    product.style.display = 'none'; // Hide product if not found
+                    product.style.display = 'none';
                 }
             });
 
             if (!found) {
-                // Show popup if no product is found
                 const popup = confirm("Not Available. Press OK to go back to the main page.");
                 if (popup) {
-                    window.location.href = "index.html"; // Redirect to main page
+                    window.location.href = "index.html";
                 }
             }
         });
 
-        // Show the first slide on load
         showSlide(currentSlide);
     </script>
 </body>
 </html>
-
