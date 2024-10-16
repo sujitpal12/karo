@@ -6,62 +6,65 @@
     <title>About & Contact - KARO-BUY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
+        html, body {
+            height: 100%; /* Full height */
+            width: 100%; /* Full width */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
-        body {
-    width: 100%;
-    overflow-x: hidden; /* This will prevent horizontal scrolling */
-}
+
         header {
             background-color: #007bff;
             color: white;
             padding: 10px 0;
             text-align: center;
-            .slider {
-        margin-bottom: 0; /* Remove any margin under the slider */
-    }
         }
+
         header img {
             width: 100px; /* Logo size */
             height: auto; /* Height auto */
             margin-bottom: 10px; /* Margin below logo */
-        } /* Fix content breaking in the middle */
-    .content-section {
-        width: 100%; /* Ensure content sections take full width on small screens */
-        text-align: center;
+        }
+
         nav {
             display: flex;
             justify-content: center;
             background-color: #333;
             padding: 10px 0;
         }
+
         nav a {
             color: white;
             padding: 14px 20px;
             text-decoration: none;
             text-align: center;
         }
+
         nav a:hover {
             background-color: #ddd;
             color: black;
         }
-        .about, .contact {
-            margin: 20px;
+
+        .about {
+            margin: 20px auto; /* Center the section */
             padding: 20px;
             background-color: #f8f9fa; /* Light background for sections */
             border: 1px solid #ccc; /* Border around section */
             border-radius: 8px; /* Rounded corners */
+            max-width: 600px; /* Maximum width for readability */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
         }
-        .about h2, .contact h2 {
+
+        .about h2 {
             text-align: center; /* Center the heading */
         }
-        .about p, .contact p {
+
+        .about p {
             line-height: 1.6; /* Improve readability */
         }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -70,6 +73,26 @@
             position: relative;
             bottom: 0;
             width: 100%;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column; /* Stack links vertically on small screens */
+            }
+
+            nav a {
+                padding: 10px; /* Adjust padding for mobile */
+            }
+
+            header img {
+                width: 80px; /* Reduce logo size on mobile */
+            }
+
+            .about {
+                padding: 15px; /* Adjust padding for mobile */
+                margin: 10px; /* Reduce margin for mobile */
+            }
         }
     </style>
 </head>
@@ -92,7 +115,6 @@
         <p>At KARO-BUY, we believe in customer satisfaction and strive to make your online shopping journey enjoyable and hassle-free. Our dedicated team works tirelessly to curate the best products for you, ensuring quality and value for your money.</p>
     </div>
 
-    
     <footer>
         <p>&copy; 2024 KARO-BUY. All rights reserved.</p>
     </footer>
