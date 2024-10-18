@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevent gap on the right side */
         }
         header {
             background-color: #007bff;
@@ -18,7 +18,7 @@
             display: flex;
             align-items: center;
             padding: 10px;
-            justify-content: space-between;
+            justify-content: space-between; /* Space between elements */
         }
         header img {
             width: 100px;
@@ -27,11 +27,11 @@
         }
         header h1 {
             margin: 0;
-            flex-grow: 1;
+            flex-grow: 1; /* Create space for company name */
         }
         #search-container {
             display: flex;
-            align-items: center;
+            align-items: center; /* Center the search input and button */
         }
         #search {
             padding: 10px;
@@ -51,7 +51,7 @@
         }
         nav {
             display: flex;
-            align-items: center;
+            align-items: center; /* Align nav items vertically */
         }
         nav a {
             color: white;
@@ -139,31 +139,26 @@
             margin: 5px;
             cursor: pointer;
         }
-
-        /* Mobile Styles */
         .menu-button {
-            display: none;
-            cursor: pointer;
+            display: none; /* Hidden by default */
             font-size: 24px;
+            cursor: pointer;
         }
 
         #mobile-menu {
-            display: none;
+            display: none; /* Hidden by default */
             flex-direction: column;
-            position: absolute;
             background-color: #007bff;
-            right: 10px;
-            top: 50px;
-            z-index: 10;
-            width: 200px;
-            border-radius: 5px;
+            position: absolute;
+            right: 0;
+            top: 60px; /* Position below header */
+            z-index: 1000;
         }
 
         #mobile-menu a {
             padding: 10px;
-            color: white;
-            text-decoration: none;
-            border-bottom: 1px solid #fff;
+            text-align: right; /* Align text to the right */
+            border-top: 1px solid #fff;
         }
 
         @media (max-width: 600px) {
@@ -177,7 +172,10 @@
                 display: block; /* Show menu button on mobile */
             }
             nav {
-                display: none; /* Hide nav on mobile */
+                display: none; /* Hide desktop nav on mobile */
+            }
+            #mobile-menu {
+                display: none; /* Hidden by default */
             }
         }
     </style>
@@ -190,10 +188,10 @@
             <input type="text" id="search" placeholder="Search products...">
             <button id="search-button"><i class="fas fa-search"></i></button>
         </div>
-        <div class="menu-button" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
+        <div class="menu-button" id="menu-button" onclick="toggleMenu()">
+            <i class="fas fa-ellipsis-v"></i>
         </div>
-        <nav>
+        <nav id="desktop-nav">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="contact.html">Contact Us</a>
@@ -249,48 +247,33 @@
         </div>
     </div>
 
-    <div id="mobile-menu">
+    <footer>
+        <p>&copy; 2024 KARO-BUY. All rights reserved.</p>
+    </footer>
+
+    <nav id="mobile-menu">
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>
         <a href="top-retailer.html">Top Retailers</a>
         <a href="wallet.html">Wallet</a>
-        <a href="login.html"><i class="fas fa-user"></i> Profile</a>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 KARO-BUY. All rights reserved.</p>
-    </footer>
+                <a href="login.html"><i class="fas fa-user"></i></a>
+    </nav>
 
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slider img');
-        const totalSlides = slides.length;
-
-        function showSlide(index) {
-            slides[currentSlide].style.transform = 'translateX(-100%)'; // Move current slide out
-            currentSlide = index; // Update current slide
-            slides[currentSlide].style.transform = 'translateX(0)'; // Bring new slide in
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-
-        function previousSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(currentSlide);
-        }
-
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
-            if (menu.style.display === 'flex') {
-                menu.style.display = 'none';
-            } else {
-                menu.style.display = 'flex';
-            }
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
         }
+
+        // Hide mobile menu when clicking outside of it
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobile-menu');
+            const button = document.getElementById('menu-button');
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        });
 
         function showDetails(productId) {
             const detail = document.getElementById(`detail-${productId}`);
@@ -301,28 +284,7 @@
             const links = document.getElementById(`links-${productId}`);
             links.style.display = links.style.display === 'block' ? 'none' : 'block';
         }
-
-        // Search functionality
-        document.getElementById('search-button').addEventListener('click', function() {
-            const query = document.getElementById('search').value.toLowerCase();
-            const products = document.querySelectorAll('.product');
-            products.forEach(product => {
-                const productName = product.querySelector('h3').innerText.toLowerCase();
-                product.style.display = productName.includes(query) ? 'block' : 'none';
-            });
-        });
-
-        // Automatically show the first slide
-        showSlide(currentSlide);
-        setInterval(nextSlide, 5000); // Change slide every 5 seconds
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const menu = document.getElementById('mobile-menu');
-            if (!event.target.closest('.menu-button') && !event.target.closest('#mobile-menu')) {
-                menu.style.display = 'none';
-            }
-        });
     </script>
 </body>
 </html>
+
