@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            overflow-x: hidden; /* Prevent gap on the right side */
+            overflow-x: hidden;
         }
         header {
             background-color: #007bff;
@@ -18,7 +18,7 @@
             display: flex;
             align-items: center;
             padding: 10px;
-            justify-content: space-between; /* Space between elements */
+            justify-content: space-between;
         }
         header img {
             width: 100px;
@@ -27,11 +27,11 @@
         }
         header h1 {
             margin: 0;
-            flex-grow: 1; /* Create space for company name */
+            flex-grow: 1;
         }
         #search-container {
             display: flex;
-            align-items: center; /* Center the search input and button */
+            align-items: center;
         }
         #search {
             padding: 10px;
@@ -51,7 +51,7 @@
         }
         nav {
             display: flex;
-            align-items: center; /* Align nav items vertically */
+            align-items: center;
         }
         nav a {
             color: white;
@@ -139,50 +139,40 @@
             margin: 5px;
             cursor: pointer;
         }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            background-color: #007bff;
-            position: absolute;
-            top: 60px; /* Below header */
-            right: 0;
-            width: 200px;
-            z-index: 1000;
-        }
-
-        .mobile-menu a {
-            padding: 10px;
-            color: white;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        .mobile-menu a:hover {
-            background-color: #0056b3;
-        }
-
-        .menu-button {
-            display: none;
-            cursor: pointer;
-            font-size: 24px; /* Increased size */
-        }
-
+        /* Mobile Styles */
         @media (max-width: 600px) {
-            .slider {
-                height: 200px;
-            }
-            .product-list {
-                flex-direction: column;
-            }
-            .menu-button {
-                display: block;
-            }
-            nav {
-                display: none; /* Hide desktop nav */
+            header nav {
+                display: none; /* Hide regular nav on mobile */
             }
             .mobile-menu {
-                display: flex; /* Show mobile menu */
+                display: flex; /* Show mobile menu button */
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            .menu-button {
+                font-size: 24px;
+                cursor: pointer;
+                background: none;
+                border: none;
+                color: white;
+            }
+            .mobile-menu-options {
+                display: none; /* Hide mobile menu options initially */
+                flex-direction: column;
+                position: absolute;
+                background-color: #007bff;
+                right: 0;
+                top: 60px;
+                width: 200px;
+                border-radius: 5px;
+            }
+            .mobile-menu-options a {
+                padding: 10px;
+                color: white;
+                text-align: left;
+            }
+            .mobile-menu-options a:hover {
+                background-color: #0056b3;
             }
         }
     </style>
@@ -195,7 +185,6 @@
             <input type="text" id="search" placeholder="Search products...">
             <button id="search-button"><i class="fas fa-search"></i></button>
         </div>
-        <div class="menu-button" onclick="toggleMenu()">&#9776;</div>
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
@@ -204,16 +193,20 @@
             <a href="wallet.html">Wallet</a>
             <a href="login.html"><i class="fas fa-user"></i></a>
         </nav>
+        <div class="mobile-menu">
+            <button class="menu-button" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="mobile-menu-options" id="mobile-menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="top-retailer.html">Top Retailers</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="login.html"><i class="fas fa-user"></i></a>
+            </div>
+        </div>
     </header>
-
-    <div class="mobile-menu" id="mobile-menu">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="top-retailer.html">Top Retailers</a>
-        <a href="wallet.html">Wallet</a>
-        <a href="login.html"><i class="fas fa-user"></i> Profile</a>
-    </div>
 
     <div class="offers">
         <marquee behavior="scroll" direction="left">New offers are coming! Check them out!</marquee>
@@ -266,17 +259,21 @@
     </footer>
 
     <script>
-        // Toggle mobile menu
-        function toggleMenu() {
-            const mobileMenu = document.getElementById("mobile-menu");
-            if (mobileMenu.style.display === "flex") {
-                mobileMenu.style.display = "none";
-            } else {
-                mobileMenu.style.display = "flex";
-            }
+        let currentSlide = 0;
+                const slides = document.querySelectorAll('.slider img');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.transform = `translateX(${(i - index) * 100}%)`;
+            });
         }
 
-        // Show product details
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }, 3000);
+
         function showDetails(productId) {
             const detailElement = document.getElementById(`detail-${productId}`);
             if (detailElement.style.display === "block") {
@@ -286,53 +283,40 @@
             }
         }
 
-        // Show ecommerce links
         function showEcommerceLinks(productId) {
             const linksElement = document.getElementById(`links-${productId}`);
-            if (linksElement.style.display === "block") {
-                linksElement.style.display = "none";
-            } else {
-                linksElement.style.display = "block";
-            }
+            linksElement.style.display = linksElement.style.display === "block" ? "none" : "block";
         }
 
-        // Search functionality
-        document.getElementById("search-button").onclick = function() {
-            const searchTerm = document.getElementById("search").value.toLowerCase();
-            const products = document.querySelectorAll(".product");
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.style.display = mobileMenu.style.display === "flex" ? "none" : "flex";
+        }
 
-            let found = false;
-            products.forEach(product => {
-                const productName = product.querySelector("h3").innerText.toLowerCase();
-                if (productName.includes(searchTerm)) {
-                    product.style.display = "block"; // Show matching product
-                    found = true;
-                } else {
-                    product.style.display = "none"; // Hide non-matching product
-                }
-            });
-
-            if (!found) {
-                alert("No products found!");
-            }
-        };
-
-        // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
-            const mobileMenu = document.getElementById("mobile-menu");
+            const mobileMenu = document.getElementById('mobile-menu');
             const menuButton = document.querySelector('.menu-button');
+
             if (!menuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
-                mobileMenu.style.display = 'none';
+                mobileMenu.style.display = "none";
             }
         });
 
-        // Ensure products are shown on page load
-        document.addEventListener("DOMContentLoaded", function() {
-            const products = document.querySelectorAll(".product");
+        // Search Functionality
+        document.getElementById('search-button').addEventListener('click', function() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+
             products.forEach(product => {
-                product.style.display = "block"; // Reset visibility on load
+                const productName = product.querySelector('h3').textContent.toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
             });
         });
     </script>
 </body>
 </html>
+
