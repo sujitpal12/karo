@@ -139,37 +139,43 @@
             margin: 5px;
             cursor: pointer;
         }
-        .menu-toggle {
-            display: none; /* Hide menu toggle by default */
-            cursor: pointer;
-            color: white;
-        }
-        .nav-links {
-            display: flex; /* Show links by default */
-        }
+
+        /* Mobile styles */
         @media (max-width: 600px) {
-            .slider {
-                height: 200px;
+            header {
+                flex-direction: column;
+                align-items: flex-start; /* Align items to start */
+            }
+            #search-container {
+                width: 100%; /* Make search container full width */
+                margin-top: 5px; /* Add margin above search */
+            }
+            nav {
+                display: none; /* Hide the navigation by default */
+            }
+            .menu-toggle {
+                display: block; /* Show the menu icon */
+                cursor: pointer; /* Show pointer cursor */
+                padding: 10px;
             }
             .product-list {
                 flex-direction: column;
             }
-            .menu-toggle {
-                display: block; /* Show menu toggle on mobile */
+            .slider {
+                height: 200px;
             }
-            .nav-links {
-                display: none; /* Hide links by default */
-                flex-direction: column; /* Stack links vertically */
-                width: 100%; /* Full width */
-                background-color: #007bff; /* Same background as header */
-            }
-            .nav-links a {
-                padding: 10px; /* Less padding for mobile */
-                text-align: left; /* Left align text */
-            }
-            .nav-links.active {
-                display: flex; /* Show links when active */
-            }
+        }
+        
+        /* Show navigation when menu is active */
+        .nav-active {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: absolute; /* Position absolutely to overlap content */
+            background-color: #007bff; /* Same as header */
+            top: 60px; /* Position below the header */
+            left: 0;
+            z-index: 1;
         }
     </style>
 </head>
@@ -184,15 +190,16 @@
         <div class="menu-toggle" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="top-retailer.html">Top Retailers</a>
-            <a href="wallet.html">Wallet</a>
-            <a href="login.html"><i class="fas fa-user"></i></a>
-        </nav>
     </header>
+
+    <nav id="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="top-retailer.html">Top Retailers</a>
+        <a href="wallet.html">Wallet</a>
+        <a href="login.html"><i class="fas fa-user"></i></a>
+    </nav>
 
     <div class="offers">
         <marquee behavior="scroll" direction="left">New offers are coming! Check them out!</marquee>
@@ -251,7 +258,7 @@
 
         function showSlide(index) {
             slides[currentSlide].style.transform = 'translateX(-100%)';
-            currentSlide = (index + totalSlides) % totalSlides;
+                        currentSlide = (index + totalSlides) % totalSlides;
             slides[currentSlide].style.transform = 'translateX(0)';
         }
 
@@ -294,9 +301,10 @@
             }
         });
 
+        // Menu toggle for mobile
         function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('nav-active');
         }
 
         showSlide(currentSlide);
