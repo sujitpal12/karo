@@ -19,6 +19,7 @@
             align-items: center;
             padding: 10px;
             justify-content: space-between; /* Space between elements */
+            position: relative; /* Required for absolute positioning of mobile nav */
         }
         header img {
             width: 100px;
@@ -140,38 +141,41 @@
             cursor: pointer;
         }
 
-        /* Styles for mobile */
+        /* New styles for mobile menu */
+        .menu-toggle {
+            display: none; /* Hidden by default */
+            cursor: pointer;
+            font-size: 30px; /* Increased size */
+        }
+
+        /* Show menu toggle only on mobile screens */
         @media (max-width: 600px) {
-            header {
-                flex-direction: column; /* Stack elements vertically */
-                align-items: flex-start; /* Align items to the start */
-            }
-            nav {
-                display: none; /* Hide nav by default */
-                position: absolute;
-                top: 60px; /* Position below header */
-                right: 10px; /* Adjust according to your design */
-                background-color: #007bff; /* Match header */
-                border-radius: 5px; /* Rounded corners */
-                flex-direction: column; /* Stack menu items */
-                z-index: 1000; /* Ensure menu is on top */
-            }
-            nav a {
-                padding: 10px; /* Less padding for mobile */
-                text-align: left; /* Align text to the left */
-            }
             .menu-toggle {
-                cursor: pointer; /* Pointer on menu icon */
-                margin-left: auto; /* Align right */
+                display: block; /* Show on mobile */
             }
-            .menu-toggle.active + nav {
-                display: flex; /* Show nav when active */
+
+            nav {
+                display: none; /* Hide regular nav on mobile */
             }
-            .slider {
-                height: 200px; /* Adjust slider height */
+
+            .mobile-nav {
+                display: none; /* Initially hide mobile nav */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background-color: #007bff;
+                z-index: 1000;
             }
-            .product-list {
-                flex-direction: column; /* Stack products vertically */
+
+            .mobile-nav a {
+                padding: 15px;
+                text-align: left;
+                color: white;
+            }
+
+            .mobile-nav a:hover {
+                background-color: #0056b3;
             }
         }
     </style>
@@ -184,10 +188,8 @@
             <input type="text" id="search" placeholder="Search products...">
             <button id="search-button"><i class="fas fa-search"></i></button>
         </div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
-        <nav id="mobile-nav">
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div> <!-- Three-dot menu -->
+        <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="contact.html">Contact Us</a>
@@ -195,6 +197,14 @@
             <a href="wallet.html">Wallet</a>
             <a href="login.html"><i class="fas fa-user"></i></a>
         </nav>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="top-retailer.html">Top Retailers</a>
+            <a href="wallet.html">Wallet</a>
+            <a href="login.html"><i class="fas fa-user"></i></a>
+        </div>
     </header>
 
     <div class="offers">
@@ -251,6 +261,7 @@
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slider img');
         const totalSlides = slides.length;
+
         function showSlide(index) {
             slides[currentSlide].style.transform = 'translateX(-100%)';
             currentSlide = (index + totalSlides) % totalSlides;
@@ -296,29 +307,12 @@
             }
         });
 
-        // Menu toggle function
         function toggleMenu() {
-            const menuToggle = document.querySelector('.menu-toggle');
             const mobileNav = document.getElementById('mobile-nav');
-
-            menuToggle.classList.toggle('active'); // Add active class to toggle styles
-            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex'; // Show/hide nav
+            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
         }
-
-        // Hide the mobile menu when clicking outside
-        window.addEventListener('click', function (event) {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const mobileNav = document.getElementById('mobile-nav');
-
-            if (!menuToggle.contains(event.target) && !mobileNav.contains(event.target)) {
-                mobileNav.style.display = 'none'; // Hide nav if clicked outside
-                const menuToggle = document.querySelector('.menu-toggle');
-                menuToggle.classList.remove('active'); // Remove active class
-            }
-        });
 
         showSlide(currentSlide);
     </script>
 </body>
 </html>
-
