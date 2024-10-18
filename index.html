@@ -12,6 +12,7 @@
             box-sizing: border-box;
             overflow-x: hidden;
         }
+
         header {
             background-color: #007bff;
             color: white;
@@ -20,24 +21,29 @@
             padding: 10px;
             justify-content: space-between;
         }
+
         header img {
-            width: 100px;
+            width: 80px;
             height: auto;
             margin-right: 10px;
         }
+
         header h1 {
             margin: 0;
             flex-grow: 1;
         }
+
         #search-container {
             display: flex;
             align-items: center;
         }
+
         #search {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px 0 0 5px;
         }
+
         #search-button {
             padding: 10px;
             border: none;
@@ -46,122 +52,110 @@
             border-radius: 0 5px 5px 0;
             cursor: pointer;
         }
+
         #search-button:hover {
             background-color: #0056b3;
         }
+
+        .menu-icon {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
         nav {
             display: flex;
-            align-items: center;
         }
+
         nav a {
             color: white;
-            padding: 14px 20px;
+            padding: 10px 20px;
             text-decoration: none;
             text-align: center;
         }
+
         nav a:hover {
             background-color: #ddd;
             color: black;
         }
+
         .mobile-menu {
             display: none;
+            flex-direction: column;
+            background-color: #007bff;
+            width: 100%;
         }
-        .offers {
-            background-color: #f0ad4e;
+
+        .mobile-menu a {
             padding: 10px;
-            text-align: center;
-            font-weight: bold;
-            color: #fff;
-            font-size: 1.2em;
+            border-top: 1px solid #fff;
         }
+
         .slider {
-            overflow: hidden;
-            position: relative;
             width: 100%;
             height: 300px;
+            overflow: hidden;
+            position: relative;
         }
+
         .slider img {
             width: 100%;
             height: 100%;
             position: absolute;
             transition: transform 0.5s ease;
         }
+
         h2 {
             text-align: center;
             margin: 20px 0;
         }
+
         .product-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin: 20px;
         }
+
         .product {
             border: 1px solid #ccc;
-            border-radius: 7px;
-            padding: 15px;
+            padding: 10px;
             margin: 15px;
             text-align: center;
             width: 100%;
             max-width: 300px;
         }
+
         .view-more, .buy-now {
             background-color: #28a745;
             color: white;
             border: none;
             padding: 10px;
             cursor: pointer;
-            border-radius: 5px;
             margin-top: 10px;
         }
-        .view-more:hover, .buy-now:hover {
-            background-color: #218838;
-        }
+
         footer {
             text-align: center;
             padding: 20px;
             background-color: #333;
             color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        .detail {
-            display: none;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-top: 10px;
-            text-align: left;
-        }
-        .ecommerce-links {
-            display: none;
-            margin-top: 10px;
-        }
-        .ecommerce-links img {
-            width: 50px;
-            margin: 5px;
-            cursor: pointer;
         }
 
         @media (max-width: 768px) {
             nav {
                 display: none;
             }
-            .mobile-menu {
+
+            .menu-icon {
                 display: block;
-                cursor: pointer;
-                font-size: 1.5em;
-                padding: 0 20px;
             }
-            #search-container {
-                flex-direction: column;
-                margin-top: 10px;
-            }
-            .search-container-mobile {
+
+            .mobile-menu {
                 display: flex;
-                justify-content: center;
-                width: 100%;
-                padding: 10px 0;
+            }
+
+            .slider {
+                height: 200px;
             }
         }
     </style>
@@ -170,25 +164,28 @@
     <header>
         <img src="images/logo.png" alt="KARO-BUY Logo">
         <h1>KARO-BUY</h1>
-        <div class="mobile-menu" id="mobileMenu">
-            <i class="fas fa-bars"></i>
-        </div>
         <div id="search-container">
             <input type="text" id="search" placeholder="Search products...">
             <button id="search-button"><i class="fas fa-search"></i></button>
         </div>
-        <nav id="desktopMenu">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="top-retailer.html">Top Retailers</a>
-            <a href="wallet.html">Wallet</a>
-            <a href="login.html"><i class="fas fa-user"></i></a>
+        <i class="fas fa-bars menu-icon" id="menu-icon"></i>
+        <nav id="desktop-menu">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Top Retailers</a>
+            <a href="#">Wallet</a>
+            <a href="#"><i class="fas fa-user"></i></a>
         </nav>
     </header>
 
-    <div class="offers">
-        <marquee behavior="scroll" direction="left">New offers are coming! Check them out!</marquee>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Top Retailers</a>
+        <a href="#">Wallet</a>
+        <a href="#"><i class="fas fa-user"></i></a>
     </div>
 
     <div class="slider">
@@ -197,39 +194,19 @@
         <img src="images/slider3.jpg" alt="Slide 3">
     </div>
 
-    <h2>OUR PRODUCTS</h2>
+    <h2>Our Products</h2>
     <div class="product-list">
         <div class="product">
-            <img src="images/iphone 16 pro.jpg" alt="iPhone 16 Pro">
-            <h3>iPhone 16 Pro</h3>
-            <button class="view-more" onclick="showDetails(1)">View More</button>
-            <button class="buy-now" onclick="showEcommerceLinks(1)">Buy Now</button>
-            <div class="detail" id="detail-1">
-                <h4>iPhone 16 Pro Details:</h4>
-                <ul>
-                    <!-- Details go here -->
-                </ul>
-            </div>
-            <div class="ecommerce-links" id="links-1">
-                <a href="https://amzn.to/3BN532A"><img src="images/amazon-logo.png" alt="Amazon"></a>
-                <a href="https://fktr.in/Dvia3rl"><img src="images/flipkart-logo.png" alt="Flipkart"></a>
-            </div>
+            <img src="images/iphone.jpg" alt="iPhone">
+            <h3>iPhone 13</h3>
+            <button class="view-more">View More</button>
+            <button class="buy-now">Buy Now</button>
         </div>
         <div class="product">
-            <img src="images/SAMSUNG Galaxy Z Fold6 5G .jpg" alt="SAMSUNG Galaxy Z Fold6 5G">
-            <h3>SAMSUNG Galaxy Z Fold6 5G</h3>
-            <button class="view-more" onclick="showDetails(2)">View More</button>
-            <button class="buy-now" onclick="showEcommerceLinks(2)">Buy Now</button>
-            <div class="detail" id="detail-2">
-                <h4>SAMSUNG Galaxy Z Fold6 5G Details:</h4>
-                <ul>
-                    <!-- Details go here -->
-                </ul>
-            </div>
-            <div class="ecommerce-links" id="links-2">
-                <a href="https://amzn.to/4h5Cayz"><img src="images/amazon-logo.png" alt="Amazon"></a>
-                <a href="https://fktr.in/ci7b4Dm"><img src="images/flipkart-logo.png" alt="Flipkart"></a>
-            </div>
+            <img src="images/samsung.jpg" alt="Samsung">
+            <h3>Samsung Galaxy</h3>
+            <button class="view-more">View More</button>
+            <button class="buy-now">Buy Now</button>
         </div>
     </div>
 
@@ -238,53 +215,56 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenu = document.getElementById('mobileMenu');
-        const desktopMenu = document.getElementById('desktopMenu');
-        const mobileNav = document.createElement('div');
-        mobileNav.id = 'mobileNav';
-        mobileNav.innerHTML = desktopMenu.innerHTML;
-        mobileNav.style.display = 'none';
-        mobileNav.style.position = 'absolute';
-        mobileNav.style.backgroundColor = '#007bff';
-        mobileNav.style.width = '100%';
-        document.body.appendChild(mobileNav);
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const desktopMenu = document.getElementById('desktop-menu');
 
-        mobileMenu.addEventListener('click', function() {
-            mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+        // Toggle mobile menu visibility
+        menuIcon.addEventListener('click', function() {
+            mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
         });
 
-        document.addEventListener('click', function(e) {
-            if (!mobileMenu.contains(e.target) && !mobileNav.contains(e.target)) {
-                mobileNav.style.display = 'none';
+        // Hide menu when clicking outside
+        window.addEventListener('click', function(e) {
+            if (!menuIcon.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.style.display = 'none';
             }
         });
 
-        // Function to show product details
-        function showDetails(productId) {
-            const detail = document.getElementById(`detail-${productId}`);
-            detail.style.display = detail.style.display === 'block' ? 'none' : 'block';
-        }
+        // Search functionality
+        document.getElementById('search-button').addEventListener('click', function () {
+            const searchQuery = document.getElementById('search').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            let found = false;
 
-        // Function to show eCommerce links
-        function showEcommerceLinks(productId) {
-            const links = document.getElementById(`links-${productId}`);
-            links.style.display = links.style.display === 'block' ? 'none' : 'block';
-        }
+            products.forEach(product => {
+                const productName = product.querySelector('h3').innerText.toLowerCase();
+                if (productName.includes(searchQuery)) {
+                    product.style.display = 'block';
+                    found = true;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
 
-        // Ensure responsive search box visibility
+            if (!found) {
+                alert("Not Available. Redirecting to main page.");
+                window.location.href = "index.html";
+            }
+        });
+
+        // Responsive adjustments for search box
         window.addEventListener('resize', function() {
             const searchContainer = document.getElementById('search-container');
-            const mobileWidth = 768;
-
-            if (window.innerWidth <= mobileWidth) {
-                searchContainer.classList.add('search-container-mobile');
+            if (window.innerWidth <= 768) {
+                searchContainer.style.display = 'flex';
+                searchContainer.style.width = '100%';
             } else {
-                searchContainer.classList.remove('search-container-mobile');
+                searchContainer.style.width = 'auto';
             }
         });
 
-        // Initial trigger for search visibility on page load
+        // Adjust on page load
         window.dispatchEvent(new Event('resize'));
     </script>
 </body>
