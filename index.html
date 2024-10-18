@@ -140,31 +140,49 @@
             cursor: pointer;
         }
 
-        /* Mobile Menu */
-        #mobile-nav {
-            display: none; /* Hide mobile nav by default */
-            flex-direction: column;
-            background-color: #007bff; /* Background color for mobile menu */
-            position: absolute;
-            top: 60px; /* Adjust as needed */
-            right: 0;
-            z-index: 1000; /* Ensure it appears above other content */
-        }
-        #mobile-menu {
-            display: none; /* Hide mobile menu icon by default */
-            cursor: pointer; /* Change cursor for menu icon */
-        }
-
+        /* Mobile Styles */
         @media (max-width: 600px) {
-            #desktop-nav {
-                display: none; /* Hide desktop nav on mobile */
+            .slider {
+                height: 200px;
             }
-            #mobile-nav {
-                display: flex; /* Show mobile nav on mobile */
+            .product-list {
+                flex-direction: column;
+            }
+            #search-container {
+                margin-top: 10px; /* Margin for search input */
+                width: 100%;
+                order: 1; /* Move search to the top */
+            }
+            nav {
+                display: none; /* Hide desktop navigation */
             }
             #mobile-menu {
-                display: block; /* Show mobile menu icon */
-                font-size: 24px; /* Increase size of the menu icon */
+                display: flex; /* Display mobile menu */
+                flex-direction: column;
+                position: absolute;
+                top: 60px; /* Position below header */
+                right: 0;
+                background: #007bff;
+                width: 200px;
+                border-radius: 5px;
+                z-index: 1000;
+            }
+            #mobile-menu a {
+                padding: 10px;
+                text-align: center;
+                color: white;
+            }
+            .mobile-menu-button {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+            }
+            .mobile-menu-button div {
+                width: 30px;
+                height: 4px;
+                background-color: white;
+                margin: 4px 0;
+                transition: 0.3s;
             }
         }
     </style>
@@ -177,18 +195,12 @@
             <input type="text" id="search" placeholder="Search products...">
             <button id="search-button"><i class="fas fa-search"></i></button>
         </div>
-        <div id="mobile-menu" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
+        <div class="mobile-menu-button" id="mobile-menu-button" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        <nav id="desktop-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="top-retailer.html">Top Retailers</a>
-            <a href="wallet.html">Wallet</a>
-            <a href="login.html"><i class="fas fa-user"></i></a>
-        </nav>
-        <nav id="mobile-nav" class="mobile-nav">
+        <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="contact.html">Contact Us</a>
@@ -248,52 +260,68 @@
         <p>&copy; 2024 KARO-BUY. All rights reserved.</p>
     </footer>
 
+    <div id="mobile-menu" style="display: none;">
+                <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="top-retailer.html">Top Retailers</a>
+        <a href="wallet.html">Wallet</a>
+        <a href="login.html"><i class="fas fa-user"></i> Profile</a>
+    </div>
+
     <script>
-        let currentSlide =        0;
+        let currentSlide = 0;
         const slides = document.querySelectorAll('.slider img');
-        const totalSlides = slides.length;
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.style.transform = `translateX(${(i - index) * 100}%)`;
-            });
+        function showNextSlide() {
+            slides[currentSlide].style.transform = 'translateX(-100%)';
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].style.transform = 'translateX(0)';
+            setTimeout(showNextSlide, 3000);
         }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(currentSlide);
-        }
-
-        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+        showNextSlide();
 
         function showDetails(productId) {
-            const detailElement = document.getElementById(`detail-${productId}`);
-            detailElement.style.display = detailElement.style.display === 'block' ? 'none' : 'block';
+            const detail = document.getElementById(`detail-${productId}`);
+            detail.style.display = detail.style.display === 'block' ? 'none' : 'block';
         }
 
         function showEcommerceLinks(productId) {
-            const linksElement = document.getElementById(`links-${productId}`);
-            linksElement.style.display = linksElement.style.display === 'block' ? 'none' : 'block';
+            const links = document.getElementById(`links-${productId}`);
+            links.style.display = links.style.display === 'block' ? 'none' : 'block';
         }
 
         function toggleMenu() {
-            const mobileNav = document.getElementById('mobile-nav');
-            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+            const menu = document.getElementById('mobile-menu');
+            menu.style.display = menu.style.display === 'none' ? 'flex' : 'none';
         }
 
-        // Hide mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileNav = document.getElementById('mobile-nav');
-            if (!mobileMenu.contains(event.target) && !mobileNav.contains(event.target)) {
-                mobileNav.style.display = 'none';
+        // Search functionality
+        document.getElementById('search-button').addEventListener('click', function() {
+            const query = document.getElementById('search').value.trim();
+            if (query === '') {
+                alert('Please enter a search term.');
+            } else {
+                // Redirect to search results page or filter the products
+                alert(`Searching for: ${query}`);
+                // You can implement search filtering here
             }
         });
+
+        // Hide mobile menu when clicking outside of it
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobile-menu');
+            const button = document.getElementById('mobile-menu-button');
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        });
+
+        // Initialize mobile menu display to none
+        window.onload = function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.style.display = 'none';
+        };
     </script>
 </body>
 </html>
