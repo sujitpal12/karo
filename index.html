@@ -139,13 +139,36 @@
             margin: 5px;
             cursor: pointer;
         }
-
+        .menu-toggle {
+            display: none; /* Hide menu toggle by default */
+            cursor: pointer;
+            color: white;
+        }
+        .nav-links {
+            display: flex; /* Show links by default */
+        }
         @media (max-width: 600px) {
             .slider {
                 height: 200px;
             }
             .product-list {
                 flex-direction: column;
+            }
+            .menu-toggle {
+                display: block; /* Show menu toggle on mobile */
+            }
+            .nav-links {
+                display: none; /* Hide links by default */
+                flex-direction: column; /* Stack links vertically */
+                width: 100%; /* Full width */
+                background-color: #007bff; /* Same background as header */
+            }
+            .nav-links a {
+                padding: 10px; /* Less padding for mobile */
+                text-align: left; /* Left align text */
+            }
+            .nav-links.active {
+                display: flex; /* Show links when active */
             }
         }
     </style>
@@ -158,7 +181,10 @@
             <input type="text" id="search" placeholder="Search products...">
             <button id="search-button"><i class="fas fa-search"></i></button>
         </div>
-        <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="contact.html">Contact Us</a>
@@ -253,7 +279,7 @@
             products.forEach(product => {
                 const productName = product.querySelector('h3').innerText.toLowerCase();
                 if (productName.includes(searchQuery)) {
-                    product                    .style.display = 'block';
+                    product.style.display = 'block';
                     found = true;
                 } else {
                     product.style.display = 'none';
@@ -267,6 +293,11 @@
                 }
             }
         });
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
 
         showSlide(currentSlide);
     </script>
