@@ -140,42 +140,39 @@
             cursor: pointer;
         }
 
-        /* Mobile styles */
+        /* Styles for mobile */
         @media (max-width: 600px) {
             header {
-                flex-direction: column;
-                align-items: flex-start; /* Align items to start */
-            }
-            #search-container {
-                width: 100%; /* Make search container full width */
-                margin-top: 5px; /* Add margin above search */
+                flex-direction: column; /* Stack elements vertically */
+                align-items: flex-start; /* Align items to the start */
             }
             nav {
-                display: none; /* Hide the navigation by default */
+                display: none; /* Hide nav by default */
+                position: absolute;
+                top: 60px; /* Position below header */
+                right: 10px; /* Adjust according to your design */
+                background-color: #007bff; /* Match header */
+                border-radius: 5px; /* Rounded corners */
+                flex-direction: column; /* Stack menu items */
+                z-index: 1000; /* Ensure menu is on top */
+            }
+            nav a {
+                padding: 10px; /* Less padding for mobile */
+                text-align: left; /* Align text to the left */
             }
             .menu-toggle {
-                display: block; /* Show the menu icon */
-                cursor: pointer; /* Show pointer cursor */
-                padding: 10px;
+                cursor: pointer; /* Pointer on menu icon */
+                margin-left: auto; /* Align right */
             }
-            .product-list {
-                flex-direction: column;
+            .menu-toggle.active + nav {
+                display: flex; /* Show nav when active */
             }
             .slider {
-                height: 200px;
+                height: 200px; /* Adjust slider height */
             }
-        }
-        
-        /* Show navigation when menu is active */
-        .nav-active {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            position: absolute; /* Position absolutely to overlap content */
-            background-color: #007bff; /* Same as header */
-            top: 60px; /* Position below the header */
-            left: 0;
-            z-index: 1;
+            .product-list {
+                flex-direction: column; /* Stack products vertically */
+            }
         }
     </style>
 </head>
@@ -190,16 +187,15 @@
         <div class="menu-toggle" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
+        <nav id="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="top-retailer.html">Top Retailers</a>
+            <a href="wallet.html">Wallet</a>
+            <a href="login.html"><i class="fas fa-user"></i></a>
+        </nav>
     </header>
-
-    <nav id="navbar">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="top-retailer.html">Top Retailers</a>
-        <a href="wallet.html">Wallet</a>
-        <a href="login.html"><i class="fas fa-user"></i></a>
-    </nav>
 
     <div class="offers">
         <marquee behavior="scroll" direction="left">New offers are coming! Check them out!</marquee>
@@ -255,10 +251,9 @@
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slider img');
         const totalSlides = slides.length;
-
         function showSlide(index) {
             slides[currentSlide].style.transform = 'translateX(-100%)';
-                        currentSlide = (index + totalSlides) % totalSlides;
+            currentSlide = (index + totalSlides) % totalSlides;
             slides[currentSlide].style.transform = 'translateX(0)';
         }
 
@@ -301,11 +296,26 @@
             }
         });
 
-        // Menu toggle for mobile
+        // Menu toggle function
         function toggleMenu() {
-            const navbar = document.getElementById('navbar');
-            navbar.classList.toggle('nav-active');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            menuToggle.classList.toggle('active'); // Add active class to toggle styles
+            mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex'; // Show/hide nav
         }
+
+        // Hide the mobile menu when clicking outside
+        window.addEventListener('click', function (event) {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            if (!menuToggle.contains(event.target) && !mobileNav.contains(event.target)) {
+                mobileNav.style.display = 'none'; // Hide nav if clicked outside
+                const menuToggle = document.querySelector('.menu-toggle');
+                menuToggle.classList.remove('active'); // Remove active class
+            }
+        });
 
         showSlide(currentSlide);
     </script>
